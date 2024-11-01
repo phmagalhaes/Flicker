@@ -56,7 +56,7 @@ class _AdicionarperfilState extends State<Adicionarperfil> {
                         },
                       ),
                       const Text(
-                        'Voltar',
+                        'Voltrertretar',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -74,7 +74,7 @@ class _AdicionarperfilState extends State<Adicionarperfil> {
                   ),
                   SizedBox(height: 20,),
                   Text(
-                    "Adicionar Perfil",
+                    "Adicionar Peadasdrfil",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 21,

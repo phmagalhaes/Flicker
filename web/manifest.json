@@ -1,6 +1,6 @@
 {
-    "name": "flicker",
-    "short_name": "flicker",
+    "name": "carol_str",
+    "short_name": "carol_str",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

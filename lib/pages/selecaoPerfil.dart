@@ -14,6 +14,8 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
   final TextEditingController carolController = TextEditingController(text: "Carol");
   final TextEditingController pedroHController = TextEditingController(text: "Pedro H.");
   final TextEditingController vitoriaController = TextEditingController(text: "Vitória");
+  
+  get child => null;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +105,14 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
   }
 
   Widget _buildAddProfileTile() {
-  return Center(
+     return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Adicionarperfil()),
+      );
+    },
+  child: Center(
     child: Column(
       children: [
         Container(
@@ -130,7 +139,8 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
         ),
       ],
     ),
-  );
+  ),
+     );
 }
 
 void main() {

@@ -1,4 +1,5 @@
 import 'package:camilly_str/pages/esqueceuSenha.dart';
+import 'package:camilly_str/pages/selecaoPerfil.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 import 'cadastro.dart';
@@ -36,10 +37,10 @@ class _LoginState extends State<Login> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: size.height * 0.1), // Tamanho responsivo
+                SizedBox(height: size.height * 0.1), 
                 Image.asset(
                   'assets/img/flicker.png',
-                  width: size.width * 0.8, // Tamanho responsivo da imagem
+                  width: size.width * 0.8, 
                 ),
                 SizedBox(height: size.height * 0.04),
                 const Text(
@@ -288,7 +289,7 @@ class _LoginState extends State<Login> {
     if (_formKey.currentState!.validate()) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Home()),
+        MaterialPageRoute(builder: (context) => const Selecaoperfil()),
       );
     } else {
       print("form errado");

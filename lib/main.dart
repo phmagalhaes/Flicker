@@ -3,6 +3,7 @@ import 'package:camilly_str/pages/cadastro.dart';
 import 'package:camilly_str/pages/escolhaPerfil.dart';
 import 'package:camilly_str/pages/esqueceuSenha.dart';
 import 'package:camilly_str/pages/home.dart';
+import 'package:camilly_str/pages/selecaoPerfil.dart';
 import 'package:camilly_str/pages/splashScreen.dart';
 import 'package:camilly_str/pages/login.dart';
 import 'package:camilly_str/pages/splashScreenGrupo.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: MyColors.azul),
         useMaterial3: true,
       ),
-      initialRoute: "/adicionarPerfil",
+      initialRoute: "/selecaoPerfil",
       routes: {
         "/" : (context) => const Incio(),
         "/login" : (context) => const Login(),
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
         "/splashScreenGrupo": (context) => FlickerApp(),
         "/esqueceuSenha": (context) => EsqueceuSenha(),
         "/adicionarPerfil": (context) => Adicionarperfil(),
-        "/escolhaPerfil": (context) => Escolhaperfil()
+        "/escolhaPerfil": (context) => Escolhaperfil(),
+        "/selecaoPerfil": (context) => Selecaoperfil()
       },
     );
   }

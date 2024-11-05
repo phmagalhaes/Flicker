@@ -222,7 +222,7 @@ class _LoginState extends State<Login> {
 
   buttonEnterClick() {
     if (_formKey.currentState!.validate()) {
-      Navigator.pushReplacementNamed(context, '/home');
+      Navigator.pushReplacementNamed(context, '/catalogo');
     } else {
       print("form erro");
     }

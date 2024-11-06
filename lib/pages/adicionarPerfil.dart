@@ -1,5 +1,4 @@
 import 'package:camilly_str/pages/escolhaPerfil.dart';
-import 'package:camilly_str/pages/home.dart';
 import 'package:camilly_str/pages/login.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';

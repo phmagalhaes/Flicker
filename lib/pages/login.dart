@@ -3,7 +3,6 @@ import 'package:camilly_str/pages/selecaoPerfil.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 import 'cadastro.dart';
-import 'home.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

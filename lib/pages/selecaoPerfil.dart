@@ -1,4 +1,5 @@
 import 'package:camilly_str/pages/adicionarPerfil.dart';
+import 'package:camilly_str/pages/catalogo.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 
@@ -80,9 +81,16 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
   }
 
   Widget _buildProfileTile(String imagePath, TextEditingController controller) {
-    return Column(
-      children: [
-        ClipRRect(
+  return Column(
+    children: [
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Catalogo()),
+          );
+        },
+        child: ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
           child: Image.asset(
             imagePath,
@@ -91,18 +99,19 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
             fit: BoxFit.cover,
           ),
         ),
-        const SizedBox(height: 8),
-        Text(
-          controller.text,
-          style: const TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.bold, 
-            color: Colors.white,
-          ),
+      ),
+      const SizedBox(height: 8),
+      Text(
+        controller.text,
+        style: const TextStyle(
+          fontSize: 15,
+          fontWeight: FontWeight.bold, 
+          color: Colors.white,
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
 
   Widget _buildAddProfileTile() {
      return GestureDetector(

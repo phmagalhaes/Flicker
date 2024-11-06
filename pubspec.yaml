@@ -55,6 +55,11 @@ flutter:
   assets:
     - assets/img/logo.png
     - assets/img/carol.jpg
+    - assets/img/filmePD.png
+    - assets/img/image.png
+    - assets/img/image 87.png
+    - assets/img/image88.png
+    - assets/img/image1.png
   
   uses-material-design: true
 

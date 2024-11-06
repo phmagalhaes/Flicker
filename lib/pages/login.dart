@@ -1,3 +1,4 @@
+import 'package:carol_str/pages/esqueceuSenha.dart';
 import 'package:carol_str/pages/style.dart';
 import 'package:flutter/material.dart';
 import 'home.dart';
@@ -145,36 +146,46 @@ class _LoginState extends State<Login> {
 
                 // Botão de login
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {
-                          // Lógica para esquecer a senha
-                        },
-                        child: const Text(
-                          'Esqueceu a senha?',
-                          style: TextStyle(color: Colors.white),
-                        ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EsqueceuSenha()),
+                        );
+                      },
+                      child: const Text(
+                        "Esqueceu a Senha?",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            decoration: TextDecoration.underline),
                       ),
                     ),
-                    const SizedBox(height: 100),
-                    ElevatedButton(
-                      onPressed: () {
-                        buttonEnterClick();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 50, vertical: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                    const Spacer(),
+                    SizedBox(
+                      height: 40,
+                      // width: 50,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          buttonEnterClick();
+                        },
+                        child: const Text(
+                          "Entrar",
+                          style: TextStyle(
+                              fontSize: 16, 
+                              fontWeight: FontWeight.bold),
                         ),
-                        backgroundColor: Color.fromARGB(255, 40, 112, 200),
-                      ),
-                      child: const Text(
-                        'Entrar',
-                        style: TextStyle(color: Colors.white),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 40, 112, 200),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                       ),
                     ),
                   ],

@@ -41,33 +41,42 @@ class _CadastroState extends State<Cadastro> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Row(
                     children: [
                       IconButton(
-                    icon: Icon(Icons.arrow_back,
-                    color: Colors.white,),
-                    onPressed: () {
-                      Navigator.pop(context); 
-                    },
-                  ),
-                  Text(
-                    'Voltar',
-                    style: TextStyle(fontSize: 16,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                          Shadow(
-                            offset: Offset(1.0, 3.5),
-                            color: Colors.black.withOpacity(0.3),
-                            blurRadius: 3.0,
-                          )
-                        ]),
-                  ),
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      Text(
+                        'Voltar',
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            shadows: [
+                              Shadow(
+                                offset: Offset(1.0, 3.5),
+                                color: Colors.black.withOpacity(0.3),
+                                blurRadius: 3.0,
+                              )
+                            ]),
+                      ),
                     ],
                   ),
-                  Image.asset('assets/img/logo.png',),
-                  SizedBox(height: 20,),
+                  Image.asset(
+                    'assets/img/logo.png',
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Text(
                     "Cadastre-se",
                     style: TextStyle(
@@ -82,7 +91,9 @@ class _CadastroState extends State<Cadastro> {
                           )
                         ]),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Column(
                     crossAxisAlignment:
                         CrossAxisAlignment.start, // Alinha tudo à esquerda
@@ -107,28 +118,28 @@ class _CadastroState extends State<Cadastro> {
                         child: TextFormField(
                           autofocus: true,
                           decoration: InputDecoration(
-                            hintText: "Digite seu nome completo",
-                            hintStyle:
-                                TextStyle(color: Color.fromARGB(255, 27, 95, 179)),
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 121, 176, 242),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242),
-                                  width: 2),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 15)
-                          ),
+                              hintText: "Digite seu nome completo",
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(255, 27, 95, 179)),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 121, 176, 242),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242),
+                                    width: 2),
+                              ),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 15)),
                           validator: (String? email) {
                             if (email == "" || email == null) {
                               return "O nome não pode estar vazio";
@@ -143,7 +154,7 @@ class _CadastroState extends State<Cadastro> {
                           },
                         ),
                       ),
-                      SizedBox(height:16),
+                      SizedBox(height: 16),
                       Text(
                         "CPF",
                         style: TextStyle(
@@ -164,28 +175,28 @@ class _CadastroState extends State<Cadastro> {
                         child: TextFormField(
                           autofocus: true,
                           decoration: InputDecoration(
-                            hintText: "Digite seu CPF",
-                            hintStyle:
-                                TextStyle(color: Color.fromARGB(255, 27, 95, 179)),
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 121, 176, 242),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242),
-                                  width: 2),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 15)
-                          ),
+                              hintText: "Digite seu CPF",
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(255, 27, 95, 179)),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 121, 176, 242),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242),
+                                    width: 2),
+                              ),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 15)),
                           validator: (String? cpf) {
                             if (cpf == "" || cpf == null) {
                               return "O CPF não pode estar vazio";
@@ -217,28 +228,28 @@ class _CadastroState extends State<Cadastro> {
                         child: TextFormField(
                           autofocus: true,
                           decoration: InputDecoration(
-                            hintText: "Digite seu telefone",
-                            hintStyle:
-                                TextStyle(color: Color.fromARGB(255, 27, 95, 179)),
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 121, 176, 242),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242),
-                                  width: 2),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 15)
-                          ),
+                              hintText: "Digite seu telefone",
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(255, 27, 95, 179)),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 121, 176, 242),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242),
+                                    width: 2),
+                              ),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 15)),
                           validator: (String? email) {
                             if (email == "" || email == null) {
                               return "O telefone não pode estar vazio";
@@ -253,7 +264,7 @@ class _CadastroState extends State<Cadastro> {
                           },
                         ),
                       ),
-                      SizedBox(height:16),
+                      SizedBox(height: 16),
                       Text(
                         "E-mail",
                         style: TextStyle(
@@ -273,28 +284,28 @@ class _CadastroState extends State<Cadastro> {
                         child: TextFormField(
                           autofocus: true,
                           decoration: InputDecoration(
-                            hintText: "Digite seu email",
-                            hintStyle:
-                                TextStyle(color: Color.fromARGB(255, 27, 95, 179)),
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 121, 176, 242),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242),
-                                  width: 2),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 15)
-                          ),
+                              hintText: "Digite seu email",
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(255, 27, 95, 179)),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 121, 176, 242),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242),
+                                    width: 2),
+                              ),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 15)),
                           validator: (String? email) {
                             if (email == "" || email == null) {
                               return "O e-mail não pode estar vazio";
@@ -309,7 +320,7 @@ class _CadastroState extends State<Cadastro> {
                           },
                         ),
                       ),
-                      SizedBox(height:16),
+                      SizedBox(height: 16),
                       Text(
                         "Senha",
                         style: TextStyle(
@@ -330,41 +341,41 @@ class _CadastroState extends State<Cadastro> {
                           autofocus: true,
                           obscureText: !_showPassaword,
                           decoration: InputDecoration(
-                            suffixIcon: GestureDetector(
-                              child: Icon(
-                                _showPassaword
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Color.fromARGB(255, 27, 95, 179),
+                              suffixIcon: GestureDetector(
+                                child: Icon(
+                                  _showPassaword
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: Color.fromARGB(255, 27, 95, 179),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    _showPassaword = !_showPassaword;
+                                  });
+                                },
                               ),
-                              onTap: () {
-                                setState(() {
-                                  _showPassaword = !_showPassaword;
-                                });
-                              },
-                            ),
-                            hintText: "Digite sua senha",
-                            hintStyle:
-                                TextStyle(color: Color.fromARGB(255, 27, 95, 179)),
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 121, 176, 242),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242),
-                                  width: 2),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 15)
-                          ),
+                              hintText: "Digite sua senha",
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(255, 27, 95, 179)),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 121, 176, 242),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242),
+                                    width: 2),
+                              ),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 15)),
                           validator: (String? password) {
                             if (password == "" || password == null) {
                               return "A senha não pode estar vazia";
@@ -376,7 +387,7 @@ class _CadastroState extends State<Cadastro> {
                           },
                         ),
                       ),
-                      SizedBox(height:16),
+                      SizedBox(height: 16),
                       Text(
                         "Confirme a senha",
                         style: TextStyle(
@@ -397,41 +408,41 @@ class _CadastroState extends State<Cadastro> {
                           autofocus: true,
                           obscureText: !_showPassaword1,
                           decoration: InputDecoration(
-                            suffixIcon: GestureDetector(
-                              child: Icon(
-                                _showPassaword1
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Color.fromARGB(255, 27, 95, 179),
+                              suffixIcon: GestureDetector(
+                                child: Icon(
+                                  _showPassaword1
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: Color.fromARGB(255, 27, 95, 179),
+                                ),
+                                onTap: () {
+                                  setState(() {
+                                    _showPassaword1 = !_showPassaword1;
+                                  });
+                                },
                               ),
-                              onTap: () {
-                                setState(() {
-                                  _showPassaword1 = !_showPassaword1;
-                                });
-                              },
-                            ),
-                            hintText: "Confirme sua senha",
-                            hintStyle:
-                                TextStyle(color: Color.fromARGB(255, 27, 95, 179)),
-                            filled: true,
-                            fillColor: Color.fromARGB(255, 121, 176, 242),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.white),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242)),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 121, 176, 242),
-                                  width: 2),
-                            ),
-                            contentPadding: EdgeInsets.symmetric(horizontal: 15)
-                          ),
+                              hintText: "Confirme sua senha",
+                              hintStyle: TextStyle(
+                                  color: Color.fromARGB(255, 27, 95, 179)),
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 121, 176, 242),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(color: Colors.white),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242)),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 121, 176, 242),
+                                    width: 2),
+                              ),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 15)),
                           validator: (String? password) {
                             if (password == "" || password == null) {
                               return "O confirmar senha não pode estar vazia";
@@ -444,29 +455,26 @@ class _CadastroState extends State<Cadastro> {
                         ),
                       ),
                       SizedBox(height: 16),
-                      
                     ],
                   ),
                   ElevatedButton(
-                        onPressed: () {
-                          buttonEnterClick();
-                        },
-                        child: const Text("Cadastrar",
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold
-                        ),),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              const Color.fromARGB(255, 40, 112, 200),
-                          foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                        ),
-                      )
+                    onPressed: () {
+                      buttonEnterClick();
+                    },
+                    child: const Text(
+                      "Cadastrar",
+                      style:
+                          TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 40, 112, 200),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                  )
                 ],
-                
               ),
             ),
           ),

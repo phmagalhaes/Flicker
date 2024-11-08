@@ -13,7 +13,7 @@ class Catalogo extends StatefulWidget {
 
 class _CatalogoState extends State<Catalogo> {
   List<String> images = [
-    'assets/catalogo/image.png',
+    'assets/catalogo/image (2).png',
     'assets/catalogo/image-1.png',
     'assets/catalogo/image-2.png',
     'assets/catalogo/image-3.png',
@@ -70,7 +70,7 @@ class _CatalogoState extends State<Catalogo> {
     return Scaffold(
       backgroundColor: MyColors.azulfinal,
       body: Container(
-        decoration: const BoxDecoration(color: MyColors.azul),
+        decoration: const BoxDecoration(color: MyColors.azulescuro),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(
@@ -137,8 +137,8 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/catalogo/filmes/image-2.png'),
-                          Image.asset('assets/catalogo/filmes/image-1.png'),
+                          Image.asset('assets/catalogo/filmes/image-2 (1).png'),
+                          Image.asset('assets/catalogo/filmes/image-1 (1).png'),
                         ],
                       ),
                     ),
@@ -177,11 +177,11 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/catalogo/filmes/image.png'),
-                          Image.asset('assets/catalogo/filmes/image-2.png'),
-                          Image.asset('assets/catalogo/filmes/image-3.png'),
-                          Image.asset('assets/catalogo/filmes/image-4.png'),
-                          Image.asset('assets/catalogo/filmes/image-1.png'),
+                          Image.asset('assets/catalogo/filmes/image (3).png'),
+                          Image.asset('assets/catalogo/filmes/image-2 (1).png'),
+                          Image.asset('assets/catalogo/filmes/image-3 (1).png'),
+                          Image.asset('assets/catalogo/filmes/image-4 (1).png'),
+                          Image.asset('assets/catalogo/filmes/image-1 (1).png'),
                         ],
                       ),
                     ),
@@ -217,11 +217,11 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/catalogo/filmes/image-3.png'),
-                          Image.asset('assets/catalogo/filmes/image.png'),
-                          Image.asset('assets/catalogo/filmes/image-4.png'),
-                          Image.asset('assets/catalogo/filmes/image-2.png'),
-                          Image.asset('assets/catalogo/filmes/image-1.png'),
+                          Image.asset('assets/catalogo/filmes/image-3 (1).png'),
+                          Image.asset('assets/catalogo/filmes/image (3).png'),
+                          Image.asset('assets/catalogo/filmes/image-4 (1).png'),
+                          Image.asset('assets/catalogo/filmes/image-2 (1).png'),
+                          Image.asset('assets/catalogo/filmes/image-1 (1).png'),
                         ],
                       ),
                     ),

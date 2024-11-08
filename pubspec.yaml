@@ -60,6 +60,16 @@ flutter:
     - assets/img/image 87.png
     - assets/img/image88.png
     - assets/img/image1.png
+    - assets/catalogo/image (2).png
+    - assets/catalogo/image-1.png
+    - assets/catalogo/image-2.png
+    - assets/catalogo/image-3.png
+    - assets/catalogo/image-4.png
+    - assets/catalogo/filmes/image (3).png
+    - assets/catalogo/filmes/image-1 (1).png
+    - assets/catalogo/filmes/image-2 (1).png
+    - assets/catalogo/filmes/image-3 (1).png
+    - assets/catalogo/filmes/image-4 (1).png
   
   uses-material-design: true
 

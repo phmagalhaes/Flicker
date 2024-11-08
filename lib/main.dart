@@ -1,5 +1,6 @@
 import 'package:carol_str/pages/adicionarPerfil.dart';
 import 'package:carol_str/pages/cadastro.dart';
+import 'package:carol_str/pages/catalogo.dart';
 import 'package:carol_str/pages/confPerfil.dart';
 import 'package:carol_str/pages/dowload.dart';
 import 'package:carol_str/pages/escolhaPerfil.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: MyColors.azul),
       ),
       
-        initialRoute: "/selecaoPerfil",
+        initialRoute: "/catalogo",
         routes: {
           '/': (context) => const Login(),
           '/cadastro' : (context) => const Cadastro(),
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
           '/escolhaPerfil' : (context) => const Escolhaperfil(),
           '/esqueceuSenha' : (context) => const EsqueceuSenha(),
           '/selecaoPerfil' : (context) => const Selecaoperfil(),
-          '/cadastro' : (context) => const Cadastro()
+          '/catalogo' : (context) => const Catalogo()
         },
     );
   }

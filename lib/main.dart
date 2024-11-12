@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: MyColors.azul),
         useMaterial3: true,
       ),
-      initialRoute: "/buscar",
+      initialRoute: "/downloads",
       routes: {
         "/" : (context) => const Incio(),
         "/login" : (context) => const Login(),

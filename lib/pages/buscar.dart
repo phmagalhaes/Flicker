@@ -10,7 +10,7 @@ class Buscar extends StatefulWidget {
 }
 
 class _BuscarState extends State<Buscar> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 1;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;

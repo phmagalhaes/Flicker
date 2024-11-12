@@ -129,15 +129,12 @@ class _CadastroState extends State<Cadastro> {
                             ),
                             contentPadding: EdgeInsets.symmetric(horizontal: 15)
                           ),
-                          validator: (String? email) {
-                            if (email == "" || email == null) {
+                          validator: (String? nome) {
+                            if (nome == "" || nome == null) {
                               return "O nome não pode estar vazio";
                             }
-                            if (email.length < 6) {
+                            if (nome.length < 6) {
                               return "O nome está muito curto";
-                            }
-                            if (!email.contains("@")) {
-                              return "O nome é inválido";
                             }
                             return null;
                           },
@@ -239,15 +236,12 @@ class _CadastroState extends State<Cadastro> {
                             ),
                             contentPadding: EdgeInsets.symmetric(horizontal: 15)
                           ),
-                          validator: (String? email) {
-                            if (email == "" || email == null) {
+                          validator: (String? telefone) {
+                            if (telefone == "" || telefone == null) {
                               return "O telefone não pode estar vazio";
                             }
-                            if (email.length < 6) {
+                            if (telefone.length < 6) {
                               return "O telefone está muito curto";
-                            }
-                            if (!email.contains("@")) {
-                              return "O telefone é inválido";
                             }
                             return null;
                           },
@@ -478,7 +472,7 @@ class _CadastroState extends State<Cadastro> {
   buttonEnterClick() {
     if (_formKey.currentState!.validate()) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const Incio()));
+          context, MaterialPageRoute(builder: (context) => const Login()));
     } else {
       print("form errado");
     }

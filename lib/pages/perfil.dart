@@ -1,4 +1,5 @@
 import 'package:camilly_str/component/navbar.dart';
+import 'package:camilly_str/pages/catalogo.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 
@@ -47,7 +48,7 @@ class _ConfigPerfilState extends State<Perfil> {
                   child: IconButton(
                     icon: Icon(Icons.arrow_back, color: Colors.white),
                     onPressed: () {
-                      Navigator.pop(context);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Catalogo()));
                     },
                   ),
                 ),

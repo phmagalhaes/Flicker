@@ -1,4 +1,5 @@
 import 'package:camilly_str/component/navbar.dart';
+import 'package:camilly_str/pages/catalogo.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class Downloads extends StatefulWidget {
 }
 
 class _DownloadsState extends State<Downloads> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 2;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -35,12 +36,107 @@ class _DownloadsState extends State<Downloads> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(color: MyColors.azul),
-      ),
+      backgroundColor: MyColors.azul,
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: ListView(
+          children: [
+            Row(
+              children: [
+                IconButton(
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Catalogo()));
+                  },
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Downloads",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Icon(
+                        Icons.download,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(width: 48), 
+              ],
+            ),
+            SizedBox(height: 34),
+            Row(
+              children: [
+                Container(
+                  width: 180,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: DecorationImage(
+                      image: AssetImage('assets/img/filme.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Transform.translate(
+                      offset: Offset(12, 14),
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(image: AssetImage("assets/img/cel.png"))
+                      ),
+                    ),
+                  ),
+                ),
+                ),
+                SizedBox(width: 16),
+                Expanded(
+                  child: Padding( 
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0), 
+                    child: Text(
+                      'Como Perder um Homem em 10 Dias',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        height: 1.5,
+                        fontWeight: FontWeight.bold
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.play_circle_outline,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+        ),
       bottomNavigationBar: navBar(
         selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
+        onItemTapped: _onItemTapped,        
       ),
     );
   }

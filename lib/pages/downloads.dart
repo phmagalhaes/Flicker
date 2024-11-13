@@ -37,99 +37,103 @@ class _DownloadsState extends State<Downloads> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.azul,
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: ListView(
+      body: Container(
+        // padding: const EdgeInsets.all(15.0),
+        child: Column(
           children: [
+            SizedBox(height: 30,),
             Row(
-              children: [
-                IconButton(
-                  icon: Icon(
-                    Icons.arrow_back,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Catalogo()));
-                  },
-                ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Downloads",
-                        style: TextStyle(
+                      IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back,
                           color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold
                         ),
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Catalogo() ));
+                        },
                       ),
-                      SizedBox(width: 8),
-                      Icon(
-                        Icons.download,
-                        color: Colors.white,
-                        size: 20,
-                      ),
+                       SizedBox(width: 8),
                     ],
                   ),
+                  Row(
+              mainAxisAlignment: MainAxisAlignment.center, 
+              children: [
+                Text(
+                  "Downloads",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-                SizedBox(width: 48), 
+                SizedBox(width: 8), 
+                Icon(
+                  Icons.download,
+                  color: Colors.white,
+                  size: 20,
+                ),
               ],
             ),
-            SizedBox(height: 34),
-            Row(
-              children: [
-                Container(
-                  width: 180,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    image: DecorationImage(
-                      image: AssetImage('assets/img/filme.png'),
-                      fit: BoxFit.cover,
+
+                SizedBox(width: 48), 
+            SizedBox(height: 25),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                children: [
+                  Container(
+                    width: 180,
+                    height: 120,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      image: DecorationImage(
+                        image: AssetImage('assets/img/filme.png'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: Transform.translate(
-                      offset: Offset(12, 14),
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage("assets/img/cel.png"))
+                    child: Align(
+                      alignment: Alignment.bottomRight,
+                      child: Transform.translate(
+                        offset: Offset(12, 14),
+                      child: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage("assets/img/cel.png"))
+                        ),
                       ),
                     ),
                   ),
-                ),
-                ),
-                SizedBox(width: 16),
-                Expanded(
-                  child: Padding( 
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0), 
-                    child: Text(
-                      'Como Perder um Homem em 10 Dias',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        height: 1.5,
-                        fontWeight: FontWeight.bold
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Padding( 
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0), 
+                      child: Text(
+                        'Como Perder um Homem em 10 Dias',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          height: 1.5,
+                          fontWeight: FontWeight.bold
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: Icon(
-                    Icons.play_circle_outline,
-                    color: Colors.white,
-                    size: 32,
+                  IconButton(
+                    icon: Icon(
+                      Icons.play_circle_outline,
+                      color: Colors.white,
+                      size: 32,
+                    ),
+                    onPressed: () {
+                    },
                   ),
-                  onPressed: () {
-                  },
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),

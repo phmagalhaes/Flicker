@@ -40,17 +40,17 @@ class _ConfigPerfilState extends State<Perfil> {
         decoration: BoxDecoration(color: MyColors.azul),
         child: Column(
           children: [
-            const SizedBox(height: 20),
+            const SizedBox(height: 30),
             Row(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8.0, top: 16.0),
-                  child: IconButton(
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 8.0, top: 16.0),
+                  IconButton(
                     icon: Icon(Icons.arrow_back, color: Colors.white),
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => Catalogo()));
                     },
-                  ),
+                  // ),
                 ),
               ],
             ),

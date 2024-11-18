@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flicker/shared/style.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
@@ -10,11 +11,46 @@ class Cadastro extends StatefulWidget {
 }
 
 class _CadastroState extends State<Cadastro> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
-  bool _showPassword = false;
-  bool _showPasswordConfirm = false;
+  final TextEditingController _nomeController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _senhaController = TextEditingController();
   final TextEditingController _confirmSenhaController = TextEditingController();
+  bool _showPassword = false;
+  bool _showPasswordConfirm = false;
+
+  Future<void> _register() async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _senhaController.text.trim(),
+        );
+
+        await userCredential.user!.updateDisplayName(_nomeController.text.trim());
+        await userCredential.user!.reload();
+
+        _showSnackBar('Cadastro realizado com sucesso!', Colors.green);
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Login()),
+        );
+      } catch (e) {
+        _showSnackBar('Erro no cadastro: ${e.toString()}', Colors.red);
+      }
+    }
+  }
+
+  void _showSnackBar(String message, Color color) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: color,
+      duration: const Duration(seconds: 2),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,20 +60,16 @@ class _CadastroState extends State<Cadastro> {
         padding: const EdgeInsets.all(30.0),
         height: MediaQuery.of(context).size.height * 1,
         decoration: const BoxDecoration(
-          color: Colors.white,
           gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              stops: [
-                0,
-                0.5,
-                1
-              ],
-              colors: [
-                MyColors.azulTopGratiente,
-                MyColors.azulMeioGratiente,
-                MyColors.azulBottomGratiente
-              ]),
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            stops: [0, 0.5, 1],
+            colors: [
+              MyColors.azulTopGratiente,
+              MyColors.azulMeioGratiente,
+              MyColors.azulBottomGratiente,
+            ],
+          ),
         ),
         child: SingleChildScrollView(
           child: Form(
@@ -46,25 +78,26 @@ class _CadastroState extends State<Cadastro> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.arrow_back,
-                            color: Colors.white), // Seta para voltar
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
+                  children: [
+                    IconButton(
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const Text(
+                      'Voltar',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white,
                       ),
-                      const Text(
-                        'Voltar',
-                        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: Colors.white),
-                      )
-                    ]),
-
-                const SizedBox(height: 50,),
-                Image.asset('assets/logo.png'),
-                const SizedBox(
-                  height: 50,
+                    ),
+                  ],
                 ),
+                const SizedBox(height: 50),
+                Image.asset('assets/logo.png'),
+                const SizedBox(height: 50),
                 const Text(
                   "Cadastre-se",
                   style: TextStyle(
@@ -80,23 +113,23 @@ class _CadastroState extends State<Cadastro> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 50,
+                const SizedBox(height: 50),
+                _buildTextFormField("Nome", "Informe seu nome", Icons.person, _nomeController),
+                _buildTextFormField("Email", "Informe seu email", Icons.mail, _emailController, isEmail: true),
+                _buildTextFormField("Senha", "Informe sua senha", Icons.lock, _senhaController, isPassword: true),
+                _buildTextFormField(
+                  "Confirmação de Senha",
+                  "Confirme sua senha",
+                  Icons.lock,
+                  _confirmSenhaController,
+                  isPassword: true,
+                  isConfirmPassword: true,
                 ),
-                _buildTextFormField("Nome", "Informe seu nome", Icons.person, true),
-                _buildTextFormField("Telefone", "Informe seu telefone", Icons.phone, true, isPhone: true),
-                _buildTextFormField("CPF", "Informe seu CPF", Icons.numbers, true, isCpf: true),
-                _buildTextFormField("Email", "Informe seu email", Icons.mail, true, isEmail: true),
-                _buildTextFormField("Senha", "Informe sua senha", Icons.lock, true, isPassword: true, isConfirmPassword: false),
-                _buildTextFormField("Confirmação de Senha", "Confirme sua senha", Icons.lock, true, isPassword: true, isConfirmPassword: true),
-
                 const SizedBox(height: 10),
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {
-                      buttonEnterClick();
-                    },
-                    child: Text("Cadastrar"),
+                    onPressed: _register,
+                    child: const Text("Cadastrar"),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 40, 112, 200),
                       foregroundColor: Colors.white,
@@ -112,16 +145,14 @@ class _CadastroState extends State<Cadastro> {
   }
 
   Widget _buildTextFormField(
-      String labelText,
-      String hintText,
-      IconData icon,
-      bool isRequired, {
-        bool isPassword = false,
-        bool isConfirmPassword = false,
-        bool isEmail = false,
-        bool isPhone = false,
-        bool isCpf = false,
-      }) {
+    String labelText,
+    String hintText,
+    IconData icon,
+    TextEditingController controller, {
+    bool isPassword = false,
+    bool isConfirmPassword = false,
+    bool isEmail = false,
+  }) {
     bool isObscure = isConfirmPassword ? _showPasswordConfirm : _showPassword;
 
     return Column(
@@ -129,37 +160,32 @@ class _CadastroState extends State<Cadastro> {
       children: [
         Align(
           alignment: Alignment.centerLeft,
-          child: Text(labelText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-                shadows: [
-                  Shadow(
-                    offset: Offset(3.0, 3.0),
-                    blurRadius: 5.0,
-                    color: Color.fromARGB(69, 0, 0, 0),
-                  ),
-                ],
-              )),
+          child: Text(
+            labelText,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              shadows: [
+                Shadow(
+                  offset: Offset(3.0, 3.0),
+                  blurRadius: 5.0,
+                  color: Color.fromARGB(69, 0, 0, 0),
+                ),
+              ],
+            ),
+          ),
         ),
         TextFormField(
           obscureText: isPassword ? !isObscure : false,
-          controller: isPassword && !isConfirmPassword
-              ? _senhaController
-              : isConfirmPassword
-                  ? _confirmSenhaController
-                  : null,
+          controller: controller,
           decoration: InputDecoration(
             filled: true,
             fillColor: const Color.fromARGB(255, 121, 176, 242),
             hintText: hintText,
-            iconColor: Colors.blue.shade900,
             suffixIcon: isPassword
                 ? GestureDetector(
-                    child: Icon(
-                      isObscure ? Icons.visibility : Icons.visibility_off,
-                    ),
+                    child: Icon(isObscure ? Icons.visibility : Icons.visibility_off),
                     onTap: () {
                       setState(() {
                         if (isConfirmPassword) {
@@ -171,32 +197,21 @@ class _CadastroState extends State<Cadastro> {
                     },
                   )
                 : null,
-            contentPadding: const EdgeInsets.symmetric(
-                vertical: 0, horizontal: 10),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none,
             ),
           ),
-          style: const TextStyle(color: Color(0xFF08172B)),
           validator: (value) {
-            if (isRequired && (value == null || value.isEmpty)) {
-              return "O $labelText não pode ser vazio";
+            if (value == null || value.isEmpty) {
+              return "$labelText não pode ser vazio";
             }
 
-            if (isEmail && !_validateEmail(value!)) {
-              return "O email é inválido";
+            if (isEmail && !RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+              return "Email inválido";
             }
 
-            if (isPhone && !_validatePhone(value!)) {
-              return "O telefone é inválido";
-            }
-
-            if (isCpf && !_validateCpf(value!)) {
-              return "O CPF é inválido";
-            }
-
-            if (isPassword && value!.length < 6) {
+            if (isPassword && value.length < 6) {
               return "A senha deve ter pelo menos 6 caracteres";
             }
 
@@ -210,31 +225,5 @@ class _CadastroState extends State<Cadastro> {
         const SizedBox(height: 20),
       ],
     );
-  }
-
-  bool _validateEmail(String email) {
-    final regex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-    return regex.hasMatch(email);
-  }
-
-  bool _validatePhone(String phone) {
-    final regex = RegExp(r'^\+?\d{10,15}$');
-    return regex.hasMatch(phone);
-  }
-
-  bool _validateCpf(String cpf) {
-    final regex = RegExp(r'^\d{11}$');
-    return regex.hasMatch(cpf);
-  }
-
-  buttonEnterClick() {
-    if (_formKey.currentState!.validate()) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const Login()),
-      );
-    } else {
-      print("Erro no formulário");
-    }
   }
 }

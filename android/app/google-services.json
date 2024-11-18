@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "32241382691",
-    "project_id": "login-pedroh",
-    "storage_bucket": "login-pedroh.firebasestorage.app"
+    "project_number": "215899724861",
+    "project_id": "flicker-authentication",
+    "storage_bucket": "flicker-authentication.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:32241382691:android:5396f903297005ee018896",
+        "mobilesdk_app_id": "1:215899724861:android:2ae604efe72f726524de54",
         "android_client_info": {
           "package_name": "pedro.magalhaes.flicker"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAIx2BzJWNd6ZtZnrX7g1EHk5oXkdxaocg"
+          "current_key": "AIzaSyAa1Y3rXH3z3PnFEhhy3PKvfUq3gx5I9aA"
         }
       ],
       "services": {

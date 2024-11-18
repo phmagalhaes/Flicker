@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart'; // Importa o pacote do Firebase Auth
 import 'package:flicker/components/navbar.dart';
 import 'package:flicker/shared/style.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,8 @@ class ConfigPerfil extends StatefulWidget {
 
 class _ConfigPerfilState extends State<ConfigPerfil> {
   int _selectedIndex = 3;
+  final FirebaseAuth _auth = FirebaseAuth.instance; // Instância do FirebaseAuth para logout
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -29,6 +32,20 @@ class _ConfigPerfilState extends State<ConfigPerfil> {
       case 3:
         Navigator.pushNamed(context, '/perfil');
         break;
+    }
+  }
+
+  Future<void> _logout() async {
+    try {
+      await _auth.signOut(); // Faz o logout do usuário
+      Navigator.pushReplacementNamed(context, '/login'); // Redireciona para a tela de login
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Erro ao sair: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -152,9 +169,13 @@ class _ConfigPerfilState extends State<ConfigPerfil> {
       ),
       trailing: Icon(icon, color: Colors.white),
       onTap: () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Clicou em $title')),
-        );
+        if (title == 'Sair') {
+          _logout(); // Chama a função de logout ao clicar em "Sair"
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Clicou em $title')),
+          );
+        }
       },
     );
   }

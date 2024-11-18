@@ -41,7 +41,7 @@ class _CatalogoState extends State<Catalogo> {
     super.dispose();
   }
 
-
+  
   int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
@@ -136,8 +136,20 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/catalogo/filmes/image-2.png'),
-                          Image.asset('assets/catalogo/filmes/image-1.png'),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme1');
+                            },
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme1.png'),
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme4.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme4');
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -176,11 +188,41 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/catalogo/filmes/image.png'),
-                          Image.asset('assets/catalogo/filmes/image-2.png'),
-                          Image.asset('assets/catalogo/filmes/image-3.png'),
-                          Image.asset('assets/catalogo/filmes/image-4.png'),
-                          Image.asset('assets/catalogo/filmes/image-1.png'),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme3.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme3');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme1.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme1');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme2.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme2');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme5.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme5');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme4.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme4');
+                            },
+                          ),
                         ],
                       ),
                     ),
@@ -216,11 +258,41 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/catalogo/filmes/image-3.png'),
-                          Image.asset('assets/catalogo/filmes/image.png'),
-                          Image.asset('assets/catalogo/filmes/image-4.png'),
-                          Image.asset('assets/catalogo/filmes/image-2.png'),
-                          Image.asset('assets/catalogo/filmes/image-1.png'),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme4.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme4');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme5.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme5');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme2.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme2');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme3.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme3');
+                            },
+                          ),
+                          GestureDetector(
+                            child: Image.asset(
+                                'assets/catalogo/filmes/filme1.png'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/filme1');
+                            },
+                          ),
                         ],
                       ),
                     ),

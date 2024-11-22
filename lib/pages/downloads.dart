@@ -1,5 +1,4 @@
 import 'package:camilly_str/component/navbar.dart';
-import 'package:camilly_str/pages/catalogo.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 
@@ -37,110 +36,107 @@ class _DownloadsState extends State<Downloads> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.azul,
-      body: Container(
-        // padding: const EdgeInsets.all(15.0),
-        child: Column(
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: ListView(
           children: [
-            SizedBox(height: 30,),
             Row(
+              children: [
+                IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                const Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      IconButton(
-                        icon: const Icon(
-                          Icons.arrow_back,
+                      Text(
+                        "Downloads",
+                        style: TextStyle(
                           color: Colors.white,
+                          fontSize: 16,
                         ),
-                        onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => Catalogo() ));
-                        },
                       ),
-                       SizedBox(width: 8),
+                      SizedBox(width: 8),
+                      Icon(
+                        Icons.download,
+                        color: Colors.white,
+                        size: 20,
+                      ),
                     ],
                   ),
-                  Row(
-              mainAxisAlignment: MainAxisAlignment.center, 
+                ),
+                const SizedBox(width: 48),
+              ],
+            ),
+            const SizedBox(height: 34),
+            Row(
               children: [
-                Text(
-                  "Downloads",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  width: 170,
+                  height: 120,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/img/filmes/homem.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                      margin: const EdgeInsets.all(4),
+                      padding: const EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        color: MyColors.azulEscuro,
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: const Icon(
+                        Icons.phone_android,
+                        color: Colors.white,
+                        size: 12,
+                      ),
+                    ),
                   ),
                 ),
-                SizedBox(width: 8), 
-                Icon(
-                  Icons.download,
-                  color: Colors.white,
-                  size: 20,
+                const SizedBox(width: 16),
+                const Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    child: Text(
+                      'Como Perder um Homem em 10 Dias',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        height: 1.5,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(
+                    Icons.play_circle_outline,
+                    color: Colors.white,
+                    size: 32,
+                  ),
+                  onPressed: () {
+                  },
                 ),
               ],
             ),
-
-                SizedBox(width: 48), 
-            SizedBox(height: 25),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
-                  Container(
-                    width: 180,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      image: DecorationImage(
-                        image: AssetImage('assets/img/filme.png'),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    child: Align(
-                      alignment: Alignment.bottomRight,
-                      child: Transform.translate(
-                        offset: Offset(12, 14),
-                      child: Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage("assets/img/cel.png"))
-                        ),
-                      ),
-                    ),
-                  ),
-                  ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: Padding( 
-                      padding: const EdgeInsets.only(top: 8.0, bottom: 8.0), 
-                      child: Text(
-                        'Como Perder um Homem em 10 Dias',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          height: 1.5,
-                          fontWeight: FontWeight.bold
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.play_circle_outline,
-                      color: Colors.white,
-                      size: 32,
-                    ),
-                    onPressed: () {
-                    },
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
-        ),
+      ),
       bottomNavigationBar: navBar(
         selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,        
+        onItemTapped: _onItemTapped,
       ),
     );
   }

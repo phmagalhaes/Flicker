@@ -136,8 +136,8 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/img/filmes/image-2.png'),
-                          Image.asset('assets/img/filmes/image-1.png'),
+                          Image.asset('assets/img/filmes/filme2.png'),
+                          Image.asset('assets/img/filmes/filme1.png'),
                         ],
                       ),
                     ),
@@ -176,11 +176,11 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/img/filmes/image.png'),
-                          Image.asset('assets/img/filmes/image-2.png'),
-                          Image.asset('assets/img/filmes/image-3.png'),
-                          Image.asset('assets/img/filmes/image-4.png'),
-                          Image.asset('assets/img/filmes/image-1.png'),
+                          Image.asset('assets/img/filmes/filme1.png'),
+                          Image.asset('assets/img/filmes/filme2.png'),
+                          Image.asset('assets/img/filmes/filme3.png'),
+                          Image.asset('assets/img/filmes/filme4.png'),
+                          Image.asset('assets/img/filmes/filme5.png'),
                         ],
                       ),
                     ),
@@ -216,11 +216,11 @@ class _CatalogoState extends State<Catalogo> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          Image.asset('assets/img/filmes/image-3.png'),
-                          Image.asset('assets/img/filmes/image.png'),
-                          Image.asset('assets/img/filmes/image-4.png'),
-                          Image.asset('assets/img/filmes/image-2.png'),
-                          Image.asset('assets/img/filmes/image-1.png'),
+                          Image.asset('assets/img/filmes/filme3.png'),
+                          Image.asset('assets/img/filmes/filme1.png'),
+                          Image.asset('assets/img/filmes/filme4.png'),
+                          Image.asset('assets/img/filmes/filme5.png'),
+                          Image.asset('assets/img/filmes/filme2.png'),
                         ],
                       ),
                     ),

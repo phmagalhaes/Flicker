@@ -33,6 +33,55 @@ class _Filme5State extends State<Filme5> {
     }
   }
 
+  // Função para exibir a notificação
+  void _showNotification(BuildContext context, String message, IconData icon, Color color) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          backgroundColor: MyColors.azulE,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                color: color,
+                size: 50,
+              ),
+              const SizedBox(height: 10),
+              Text(
+                message,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context); // Fecha o diálogo
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: MyColors.azulE,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text("Fechar"),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,14 +156,56 @@ class _Filme5State extends State<Filme5> {
                 ),
               ),
               const SizedBox(height: 20),
-              const Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.check_circle, color: Colors.green, size: 30),
-                  SizedBox(width: 20),
-                  Icon(Icons.add_circle, color: Colors.white, size: 30),
-                  SizedBox(width: 20),
-                  Icon(Icons.cancel, color: Colors.red, size: 30),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.check_circle,
+                      color: Colors.green,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      _showNotification(
+                        context, 
+                        "Filme adicionado aos favoritos!", 
+                        Icons.check_circle, 
+                        Colors.green,
+                      ); // Exibe a notificação com ícone verde
+                    },
+                  ),
+                  const SizedBox(width: 20),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.add_circle,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      _showNotification(
+                        context, 
+                        "Filme adicionado à lista!", 
+                        Icons.add_circle, 
+                        Colors.white,
+                      ); // Exibe a notificação com ícone branco
+                    },
+                  ),
+                  const SizedBox(width: 20),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.cancel,
+                      color: Colors.red,
+                      size: 30,
+                    ),
+                    onPressed: () {
+                      _showNotification(
+                        context, 
+                        "Filme removido da lista!", 
+                        Icons.cancel, 
+                        Colors.red,
+                      ); // Exibe a notificação com ícone vermelho
+                    },
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
@@ -138,8 +229,6 @@ class _Filme5State extends State<Filme5> {
                 style: TextStyle(color: Colors.white, fontSize: 14),
               ),
               const SizedBox(height: 20),
-
-              // Bloco ajustado: Títulos populares
               const Text(
                 "Títulos populares",
                 style: TextStyle(
@@ -148,10 +237,8 @@ class _Filme5State extends State<Filme5> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 10), // Espaçamento entre o título e as imagens
+              const SizedBox(height: 10),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start, // Alinha as imagens à esquerda
-                crossAxisAlignment: CrossAxisAlignment.start, // Alinhamento vertical
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
@@ -162,17 +249,16 @@ class _Filme5State extends State<Filme5> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(width: 10), // Espaçamento entre as imagens
+                  const SizedBox(width: 10),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Image.asset(
-                      'assets/img/filmesemelhante2.png' ,
+                      'assets/img/filmesemelhante2.png',
                       height: 120,
                       width: 170,
                       fit: BoxFit.cover,
                     ),
                   ),
-
                 ],
               ),
             ],

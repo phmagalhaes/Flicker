@@ -135,7 +135,13 @@ class _Filme5State extends State<Filme5> {
                     const SizedBox(height: 5),
                     ElevatedButton.icon(
                       onPressed: () {
-                        // Ação para baixar
+                        // Exibe a notificação ao clicar no botão "Baixar"
+                        _showNotification(
+                          context,
+                          "Download iniciado!",
+                          Icons.download_done, // Ícone indicando que o download começou
+                          Colors.blue, // Cor do ícone
+                        );
                       },
                       icon: const Icon(Icons.download, color: Colors.white),
                       label: const Text("Baixar"),
@@ -167,9 +173,9 @@ class _Filme5State extends State<Filme5> {
                     ),
                     onPressed: () {
                       _showNotification(
-                        context, 
-                        "Filme adicionado aos favoritos!", 
-                        Icons.check_circle, 
+                        context,
+                        "Filme adicionado aos favoritos!",
+                        Icons.check_circle,
                         Colors.green,
                       ); // Exibe a notificação com ícone verde
                     },
@@ -183,9 +189,9 @@ class _Filme5State extends State<Filme5> {
                     ),
                     onPressed: () {
                       _showNotification(
-                        context, 
-                        "Filme adicionado à lista!", 
-                        Icons.add_circle, 
+                        context,
+                        "Filme adicionado à lista!",
+                        Icons.add_circle,
                         Colors.white,
                       ); // Exibe a notificação com ícone branco
                     },
@@ -199,9 +205,9 @@ class _Filme5State extends State<Filme5> {
                     ),
                     onPressed: () {
                       _showNotification(
-                        context, 
-                        "Filme removido da lista!", 
-                        Icons.cancel, 
+                        context,
+                        "Filme removido da lista!",
+                        Icons.cancel,
                         Colors.red,
                       ); // Exibe a notificação com ícone vermelho
                     },

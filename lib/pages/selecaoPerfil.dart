@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto03_09_24/pages/Adicionarperfil.dart';
+import 'package:projeto03_09_24/pages/catalogo.dart';
 import 'package:projeto03_09_24/shared/style.dart';
 
 class Selecaoperfil extends StatefulWidget {
@@ -9,6 +11,13 @@ class Selecaoperfil extends StatefulWidget {
 }
 
 class _SelecaoperfilState extends State<Selecaoperfil> {
+  final TextEditingController camillyController = TextEditingController(text: "Camilly");
+  final TextEditingController carolController = TextEditingController(text: "Carol");
+  final TextEditingController pedroHController = TextEditingController(text: "Pedro H.");
+  final TextEditingController vitoriaController = TextEditingController(text: "Vitória");
+  
+  get child => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +29,7 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
             end: Alignment.bottomCenter,
             stops: [0, 0.5, 1],
             colors: [
-              MyColors.azulE,
-              MyColors.azulGradiente,
-              MyColors.azulBottomGradiente,
+              MyColors.azulE, MyColors.azulGradiente, MyColors.azulBottomGradiente
             ],
           ),
         ),
@@ -30,12 +37,13 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 20,),
               const Padding(
                 padding: EdgeInsets.only(bottom: 20.0),
                 child: Text(
                   "Quem está assistindo?",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 21,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                     shadows: [
@@ -49,46 +57,106 @@ class _SelecaoperfilState extends State<Selecaoperfil> {
                 ),
               ),
               SizedBox(
-                width: 280, // Largura do grid (ajuste conforme necessário)
+                width: 290,
                 child: GridView.count(
                   shrinkWrap: true,
-                  crossAxisCount: 2, // Número de colunas
-                  crossAxisSpacing: 10, // Espaçamento horizontal
-                  mainAxisSpacing: 10, // Espaçamento vertical
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
                   children: [
-                    Image.asset(
-                      'assets/img/camilly.png',
-                      width: 129,
-                      height: 144,
-                    ),
-                    Image.asset(
-                      'assets/img/carol.png',
-                      width: 129,
-                      height: 144,
-                    ),
-                    Image.asset(
-                      'assets/img/pedro.png',
-                      width: 129,
-                      height: 144,
-                    ),
-                    Image.asset(
-                      'assets/img/vitoria.png',
-                      width: 129,
-                      height: 144,
-                    ),
+                    _buildProfileTile('assets/img/camilly.png', camillyController),
+                    _buildProfileTile('assets/img/carol.png', carolController),
+                    _buildProfileTile('assets/img/pedro.png', pedroHController),
+                    _buildProfileTile('assets/img/vitoria.png', vitoriaController),
                   ],
                 ),
               ),
+              const SizedBox(height: 20),
+              _buildAddProfileTile(),
             ],
           ),
         ),
       ),
     );
   }
-}
 
-void main() {
-  runApp(MaterialApp(
-    home: Selecaoperfil(),
-  ));
+  Widget _buildProfileTile(String imagePath, TextEditingController controller) {
+    return Column(
+      children: [
+           GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Catalogo()),
+          );
+        },
+
+         child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Image.asset(
+            imagePath,
+            width: 110, 
+            height: 110, 
+            fit: BoxFit.contain, // Alterado para BoxFit.contain
+          ),
+        ),
+           ),
+           
+        const SizedBox(height: 8),
+        Text(
+          controller.text,
+          style: const TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold, 
+            color: Colors.white,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildAddProfileTile() {
+     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Adicionarperfil()),
+        );
+      },
+      child: Center(
+        child: Column(
+          children: [
+            Container(
+              width: 90,
+              height: 90,
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 40, 112, 200),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: const Icon(
+                Icons.add,
+                color: Colors.white,
+                size: 40,
+              ), 
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              'Adicionar perfil',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+      ),
+     );
+  }
+
+  void main() {
+    runApp(MaterialApp(
+      home: Selecaoperfil(),
+    ));
+  }
 }

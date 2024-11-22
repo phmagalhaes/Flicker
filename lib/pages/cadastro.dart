@@ -365,27 +365,40 @@ class _CadastroState extends State<Cadastro> {
             ),
 
             // Botão Voltar fixo no canto superior esquerdo
-            Positioned(
-              top: 20,
-              left: 0,
-              child: TextButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Login()),
-                  );
-                },
-                icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
-                label: const Text(
-                  "Voltar",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+           Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 30),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      const Text(
+                        'Voltar',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              offset: Offset(1.0, 3.5),
+                              color: Colors.black38,
+                              blurRadius: 3.0,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-            ),
+                ],
+           ),
           ],
         ),
       ),

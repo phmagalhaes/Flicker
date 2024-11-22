@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto03_09_24/pages/esqueceuSenha.dart';
 import 'package:projeto03_09_24/shared/style.dart';
 
 class Login extends StatefulWidget {
@@ -147,7 +148,15 @@ class _LoginState extends State<Login> {
                 const SizedBox(height: 10),
                 Row(
                   children: [
-                    const Text(
+                        GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const EsqueceuSenha()),
+                        );
+                      },
+                      child: const Text(
                       'Esqueceu a senha?',
                       style: TextStyle(
                           fontSize: 12,
@@ -155,6 +164,7 @@ class _LoginState extends State<Login> {
                           color: Colors.white,
                           decoration: TextDecoration.underline),
                     ),
+                        ),
                     const Spacer(),
                     ElevatedButton(
                       onPressed: buttonEnterClick,

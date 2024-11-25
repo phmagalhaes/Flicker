@@ -63,29 +63,31 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/img/logo.png
+    - assets/img/selecao/logo.png
     - assets/animacao/carregando2.json
-    - assets/img/camilly.png
-    - assets/img/carol.png
-    - assets/img/pedro.png
-    - assets/img/vitoria.png
-    - assets/img/addperfil.png
-    - assets/img/stitch.png
-    - assets/img/icon.png
-    - assets/img/minions.png
-    - assets/img/venom.png
-    - assets/img/avatar.png
-    - assets/img/aladin.png
-    - assets/img/interestelar.png
+    - assets/img/selecao/camilly.png
+    - assets/img/selecao/carol.png
+    - assets/img/selecao/pedro.png
+    - assets/img/selecao/vitoria.png
+    - assets/img/selecao/addperfil.png
+    - assets/img/selecao/stitch.png
+    - assets/img/selecao/icon.png
+    - assets/img/catalogofilmes/minions.png
+    - assets/img/catalogofilmes/venom.png
+    - assets/img/catalogofilmes/avatar.png
+    - assets/img/catalogofilmes/aladin.png
+    - assets/img/catalogofilmes/interestelar.png
     - assets/img/filmes/image-1.png
     - assets/img/filmes/image-2.png
     - assets/img/filmes/image-3.png
     - assets/img/filmes/image-4.png
     - assets/img/filmes/image-5.png
-    - assets/img/filmeCPH10.png
-    - assets/img/selecionado.png
-    - assets/img/filmesemelhante1.png
-    - assets/img/filmesemelhante2.png
+    - assets/img/filmes/filmeCPH10.png
+    - assets/img/filmes/selecionado.png
+    - assets/img/filmes/filmesemelhante1.png
+    - assets/img/filmes/filmesemelhante2.png
+    - assets/img/filmes/selecionadoMonstrosSA.png
+
 
     
 

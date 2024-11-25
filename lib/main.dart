@@ -4,6 +4,7 @@ import 'package:projeto03_09_24/pages/cadastro.dart';
 import 'package:projeto03_09_24/pages/catalogo.dart';
 import 'package:projeto03_09_24/pages/download.dart';
 import 'package:projeto03_09_24/pages/itemselecionado.dart';
+import 'package:projeto03_09_24/pages/itemselecionadoMonstros.dart';
 import 'package:projeto03_09_24/pages/login.dart';
 import 'package:projeto03_09_24/pages/perfil.dart';
 import 'package:projeto03_09_24/pages/selecaoPerfil.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: MyColors.azulBottomGradiente),
         useMaterial3: true, 
       ),
-      initialRoute: "/itemselecionado",
+      initialRoute: "/itemselecionadoMonstrosSA",
       routes: {
         '/': (context) => const Login(),
         '/cadastro' : (context) => const Cadastro(),
@@ -39,7 +40,9 @@ class MyApp extends StatelessWidget {
         '/catalogo': (context) => Catalogo(),
         '/dowloads' : (context) => Downloads(),
         '/perfil' : (context) => Perfil(),
-        '/itemselecionado': (context) => Filme5()
+        '/itemselecionado': (context) => Filme5(),
+        '/itemselecionadoMonstrosSA': (context) => Filme2()
+
       },
     );
   }

@@ -1,4 +1,5 @@
 import 'package:camilly_str/component/navbar.dart';
+import 'package:camilly_str/pages/buscar.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class Filme5 extends StatefulWidget {
 }
 
 class _Filme5State extends State<Filme5> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -102,7 +103,7 @@ class _Filme5State extends State<Filme5> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Buscar()));
                 },
               ),
               const SizedBox(height: 20),
@@ -249,7 +250,7 @@ class _Filme5State extends State<Filme5> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Image.asset(
-                      'assets/img/filmesemelhante1.png',
+                      'assets/img/filmes/dragao.png',
                       height: 120,
                       width: 170,
                       fit: BoxFit.cover,
@@ -259,7 +260,7 @@ class _Filme5State extends State<Filme5> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(15.0),
                     child: Image.asset(
-                      'assets/img/filmesemelhante2.png',
+                      'assets/img/filmes/monstro.png',
                       height: 120,
                       width: 170,
                       fit: BoxFit.cover,

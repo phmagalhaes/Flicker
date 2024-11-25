@@ -70,6 +70,14 @@ flutter:
     - assets/catalogo/filmes/image-2 (1).png
     - assets/catalogo/filmes/image-3 (1).png
     - assets/catalogo/filmes/image-4 (1).png
+    - assets/catalogo/filmes/dragao.png
+    - assets/catalogo/filmes/encanto.png
+    - assets/catalogo/filmes/frozen.png
+    - assets/catalogo/filmes/homem.png
+    - assets/catalogo/filmes/monstro.png
+    - assets/catalogo/filmes/filme5.png
+    - assets/catalogo/filmes/S.encanto.png
+    - assets/catalogo/filmes/S.frozen (2).png
   
   uses-material-design: true
 

@@ -1,42 +1,55 @@
+import 'package:carol_str/componentes/navbar.dart';
+import 'package:carol_str/pages/catalogo.dart';
 import 'package:carol_str/pages/style.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(Dowload());
-}
+class Downloads extends StatefulWidget {
+  const Downloads({super.key});
 
-class Dowload extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DownloadsPage(),
-    );
-  }
+  State<Downloads> createState() => _DownloadsState();
 }
 
-class DownloadsPage extends StatelessWidget {
-  final Color backButtonColor;
+class _DownloadsState extends State<Downloads> {
+  int _selectedIndex = 2;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
 
-  DownloadsPage({this.backButtonColor = Colors.white});
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/catalogo');
+        break;
+      case 1:
+        Navigator.pushNamed(context, '/buscar');
+        break;
+      case 2:
+        Navigator.pushNamed(context, '/downloads');
+        break;
+      case 3:
+        Navigator.pushNamed(context, '/perfil');
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyColors.azulescuro,
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ListView( // Utilizando ListView para permitir rolagem
+        padding: const EdgeInsets.all(15.0),
+        child: ListView(
           children: [
-            // Linha superior com o botão de voltar e o título centralizado
             Row(
               children: [
                 IconButton(
                   icon: Icon(
                     Icons.arrow_back,
-                    color: backButtonColor,
+                    color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Catalogo()));
                   },
                 ),
                 Expanded(
@@ -48,6 +61,7 @@ class DownloadsPage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
+                          fontWeight: FontWeight.bold
                         ),
                       ),
                       SizedBox(width: 8),
@@ -59,15 +73,14 @@ class DownloadsPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(width: 48), // Espaçamento para compensar o ícone de voltar
+                SizedBox(width: 48), 
               ],
             ),
             SizedBox(height: 34),
-            // Linha do conteúdo principal com a imagem e texto
             Row(
               children: [
                 Container(
-                  width: 170,
+                  width: 180,
                   height: 120,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
@@ -78,31 +91,29 @@ class DownloadsPage extends StatelessWidget {
                   ),
                   child: Align(
                     alignment: Alignment.bottomRight,
+                    child: Transform.translate(
+                      offset: Offset(12, 14),
                     child: Container(
-                      margin: EdgeInsets.all(4),
-                      padding: EdgeInsets.all(2),
+                      width: 40,
+                      height: 40,
                       decoration: BoxDecoration(
-                        color: MyColors.azulfinal,
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: Icon(
-                        Icons.phone_android,
-                        color: Colors.white,
-                        size: 12,
+                        image: DecorationImage(image: AssetImage("assets/img/cel.png"))
                       ),
                     ),
                   ),
                 ),
+                ),
                 SizedBox(width: 16),
                 Expanded(
-                  child: Padding( // Adicionando Padding ao redor do texto
-                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0), // Ajuste o padding conforme necessário
+                  child: Padding( 
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0), 
                     child: Text(
                       'Como Perder um Homem em 10 Dias',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
-                        height: 1.5, // Definindo a altura da linha do texto
+                        height: 1.5,
+                        fontWeight: FontWeight.bold
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -116,14 +127,16 @@ class DownloadsPage extends StatelessWidget {
                     size: 32,
                   ),
                   onPressed: () {
-                    // Ação do botão de play
                   },
                 ),
               ],
             ),
-            // Adicione mais elementos aqui, se necessário
           ],
         ),
+        ),
+      bottomNavigationBar: navBar(
+        selectedIndex: _selectedIndex,
+        onItemTapped: _onItemTapped,        
       ),
     );
   }

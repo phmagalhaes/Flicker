@@ -1,7 +1,8 @@
+import 'package:carol_str/pages/catalogo.dart';
 import 'package:carol_str/pages/esqueceuSenha.dart';
 import 'package:carol_str/pages/style.dart';
 import 'package:flutter/material.dart';
-import 'home.dart';
+// import 'home.dart';
 import 'cadastro.dart';
 
 class Login extends StatefulWidget {
@@ -238,7 +239,7 @@ class _LoginState extends State<Login> {
     if (_formKey.currentState!.validate()) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Home()),
+        MaterialPageRoute(builder: (context) => const Catalogo()),
       );
     } else {
       print("Erro no formulário");

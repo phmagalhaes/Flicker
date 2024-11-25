@@ -128,18 +128,18 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                               color: Color.fromARGB(255, 27, 95, 179),
                             ),
                             filled: true,
-                            fillColor: const Color.fromARGB(255, 121, 176, 242),
+                            fillColor: Colors.white.withOpacity(0.4),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(color: Colors.white),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(
                                   color: Color.fromARGB(255, 121, 176, 242)),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: const BorderSide(
                                   color: Color.fromARGB(255, 121, 176, 242),
                                   width: 2),
@@ -187,7 +187,7 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                               _showPassword
                                   ? Icons.visibility
                                   : Icons.visibility_off,
-                              color: MyColors.azul,
+                              color: MyColors.azulescuro,
                             ),
                             onTap: () {
                               setState(() {
@@ -199,18 +199,18 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                           hintStyle: const TextStyle(
                               color: Color.fromARGB(255, 27, 95, 179)),
                           filled: true,
-                          fillColor: const Color.fromARGB(255, 121, 176, 242),
+                          fillColor: Colors.white.withOpacity(0.4),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(color: Colors.white),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(
                                 color: Color.fromARGB(255, 121, 176, 242)),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(
                                 color: Color.fromARGB(255, 121, 176, 242),
                                 width: 2),
@@ -267,18 +267,18 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                           hintStyle: const TextStyle(
                               color: Color.fromARGB(255, 27, 95, 179)),
                           filled: true,
-                          fillColor: const Color.fromARGB(255, 121, 176, 242),
+                          fillColor: Colors.white.withOpacity(0.4),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(color: Colors.white),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(
                                 color: Color.fromARGB(255, 121, 176, 242)),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: const BorderSide(
                                 color: Color.fromARGB(255, 121, 176, 242),
                                 width: 2),

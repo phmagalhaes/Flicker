@@ -1,5 +1,4 @@
 import 'package:carol_str/pages/escolhaPerfil.dart';
-import 'package:carol_str/pages/home.dart';
 import 'package:carol_str/pages/login.dart';
 import 'package:carol_str/pages/style.dart';
 import 'package:carol_str/pages/login.dart';

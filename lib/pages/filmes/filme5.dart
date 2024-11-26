@@ -103,7 +103,7 @@ class _Filme5State extends State<Filme5> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Buscar()));
+                  Navigator.pop(context);
                 },
               ),
               const SizedBox(height: 20),

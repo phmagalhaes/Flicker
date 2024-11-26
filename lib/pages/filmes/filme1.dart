@@ -102,7 +102,7 @@ class _Filme1State extends State<Filme1> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => Buscar()));
+                  Navigator.pop(context);
                 },
               ),
               const SizedBox(height: 20),

@@ -105,21 +105,31 @@ class _DownloadsState extends State<Downloads> {
                   ),
                 ),
                 const SizedBox(width: 16),
-                const Expanded(
+                Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-                    child: Text(
-                      'Como Perder um Homem em 10 Dias',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        height: 1.5,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    child: Builder(
+                      builder: (BuildContext innerContext) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(innerContext, '/filme5');
+                          },
+                          child: Text(
+                            'Como Perder um Homem em 10 Dias',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              height: 1.5,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ),
+
                 IconButton(
                   icon: const Icon(
                     Icons.play_circle_outline,

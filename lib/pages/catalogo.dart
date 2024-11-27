@@ -413,7 +413,7 @@ class _CatalogoState extends State<Catalogo> {
                                     "Filme adicionado aos favoritos!",
                                     Icons.check_circle,
                                     Colors.green,
-                                  ); // Exibe a notificação com ícone verde
+                                  ); 
                                 },
                               ),
                               const SizedBox(width: 20),
@@ -429,7 +429,7 @@ class _CatalogoState extends State<Catalogo> {
                                     "Filme adicionado à lista!",
                                     Icons.add_circle,
                                     Colors.white,
-                                  ); // Exibe a notificação com ícone branco
+                                  ); 
                                 },
                               ),
                               const SizedBox(width: 20),
@@ -445,7 +445,7 @@ class _CatalogoState extends State<Catalogo> {
                                     "Filme removido da lista!",
                                     Icons.cancel,
                                     Colors.red,
-                                  ); // Exibe a notificação com ícone vermelho
+                                  );
                                 },
                               ),
                             ],
@@ -496,3 +496,4 @@ class _CatalogoState extends State<Catalogo> {
     );
   }
 }
+

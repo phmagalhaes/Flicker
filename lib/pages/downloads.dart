@@ -11,6 +11,20 @@ class Downloads extends StatefulWidget {
 
 class _DownloadsState extends State<Downloads> {
   int _selectedIndex = 2;
+
+  final List<Map<String, String>> _filmes = [
+    {
+      'title': 'Como perder um Homem em 10 dias',
+      'image': 'assets/img/filmes/homem.png',
+      'reproducaoImage': 'assets/img/filmes/homem2.png',
+      'description':
+          'Ao precisar de um relacionamento em 10 dias para escrever um artigo, a jornalista escolhe Ben, que, por uma aposta no trabalho, precisa fazer ela se apaixonar por ele.',
+      'year': '2003',
+      'ageRating': 'A12',
+      'duration': '1h50min'
+    },
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -108,36 +122,36 @@ class _DownloadsState extends State<Downloads> {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                    child: Builder(
-                      builder: (BuildContext innerContext) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(innerContext, '/filme5');
-                          },
-                          child: Text(
-                            'Como Perder um Homem em 10 Dias',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              height: 1.5,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                FilmDetailPage(_filmes[0]),
                           ),
                         );
                       },
+                      child: Text(
+                        _filmes[0]['title']!,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          height: 1.5,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
                 ),
-
                 IconButton(
                   icon: const Icon(
                     Icons.play_circle_outline,
                     color: Colors.white,
                     size: 32,
                   ),
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),
@@ -150,4 +164,209 @@ class _DownloadsState extends State<Downloads> {
       ),
     );
   }
+}
+
+class FilmDetailPage extends StatelessWidget {
+  final Map<String, String> filme;
+
+  const FilmDetailPage(this.filme, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: MyColors.azulEscuro,
+      body: Container(
+        decoration: const BoxDecoration(color: MyColors.azul),
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 20),
+                IconButton(
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Image.asset(filme['reproducaoImage']!),
+                const SizedBox(height: 20),
+                Center(
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: const Icon(Icons.play_arrow, color: Colors.white),
+                    label: const Text("Assistir"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: MyColors.azulClaro,
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(300, 40),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Center(
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      _showNotification(
+                        context,
+                        "Download iniciado!",
+                        Icons.download_done,
+                        Colors.blue,
+                      );
+                    },
+                    icon: const Icon(Icons.download, color: Colors.white),
+                    label: const Text("Baixar"),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: MyColors.azulClaro,
+                      foregroundColor: Colors.white,
+                      minimumSize: const Size(300, 40),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      textStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),const SizedBox(height: 10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.check_circle,
+                                    color: Colors.green,
+                                    size: 30,
+                                  ),
+                                  onPressed: () {
+                                    _showNotification(
+                                      context,
+                                      "Filme adicionado aos favoritos!",
+                                      Icons.check_circle,
+                                      Colors.green,
+                                    ); 
+                                  },
+                                ),
+                                const SizedBox(width: 20),
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.add_circle,
+                                    color: Colors.white,
+                                    size: 30,
+                                  ),
+                                  onPressed: () {
+                                    _showNotification(
+                                      context,
+                                      "Filme adicionado à lista!",
+                                      Icons.add_circle,
+                                      Colors.white,
+                                    ); 
+                                  },
+                                ),
+                                const SizedBox(width: 20),
+                                IconButton(
+                                  icon: const Icon(
+                                    Icons.cancel,
+                                    color: Colors.red,
+                                    size: 30,
+                                  ),
+                                  onPressed: () {
+                                    _showNotification(
+                                      context,
+                                      "Filme removido da lista!",
+                                      Icons.cancel,
+                                      Colors.red,
+                                    ); 
+                                  },
+                                ),
+                              ],
+                            ),
+                const SizedBox(height: 10),
+                Text(
+                  '${filme['year']} | Classificação: ${filme['ageRating']} | Duração: ${filme['duration']} | HD',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  filme['description']!,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    height: 1.5,
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void _showNotification(BuildContext context, String message, IconData icon, Color color) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        backgroundColor: MyColors.azulEscuro,
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              color: color,
+              size: 50,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              message,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: MyColors.azulEscuro,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: const Text("Fechar"),
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }

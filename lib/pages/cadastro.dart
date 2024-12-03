@@ -2,6 +2,7 @@ import 'package:camilly_str/pages/splashScreen.dart';
 import 'package:camilly_str/shared/style.dart';
 import "package:flutter/material.dart";
 import 'login.dart';
+import 'package:firebase_auth/firebase_auth.dart'; // Importa o pacote de autenticação do Firebase
 
 class Cadastro extends StatefulWidget {
   const Cadastro({super.key});
@@ -14,15 +15,58 @@ class _CadastroState extends State<Cadastro> {
   final _formKey = GlobalKey<FormState>();
   bool _showPassaword = false;
   bool _showPassaword1 = false;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _cpfController = TextEditingController();
+
+
+  Future<void> _register() async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        // Tenta criar o usuário com e-mail e senha
+        UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+          // username: _usernameController.text.trim(),
+        );
+
+        // Tenta atualizar o nome do usuário
+        await userCredential.user!.updateDisplayName(_usernameController.text.trim());
+        await userCredential.user!.reload();
+        _auth.currentUser; // Recarrega o usuário atualizado
+
+        // Exibe uma notificação de sucesso e redireciona
+        _showSnackBar('Cadastro realizado com sucesso!', MyColors.azul);
+        Navigator.pop(context); // Volta para a tela de login após o cadastro
+      } catch (e) {
+        // Exibe uma notificação de erro específico
+        _showSnackBar('Erro no cadastro', Colors.red);
+      }
+    }
+  }
+
+   // final _formKey = GlobalKey<FormState>();
+  bool _showPassword = false;
+  bool _showConfirmPassword = false;
+  String? _senha;
+  String? _confirmarSenha;
+  
+  void _showSnackBar(String message, Color color) {
+    final snackBar = SnackBar(
+      content: Text(message),
+      backgroundColor: color,
+      duration: Duration(seconds: 2),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color.fromARGB(255, 27, 95, 176),
-      // appBar:AppBar(
-      // backgroundColor: const Color.fromARGB(255, 27, 95, 176),
-      // title: const Text("Cadastro"),
-      // foregroundColor: Colors.white,),
+
 
       body: Container(
         width: double.infinity,
@@ -105,6 +149,7 @@ class _CadastroState extends State<Cadastro> {
                       SizedBox(
                         width: 350,
                         child: TextFormField(
+                          controller: _usernameController,
                           autofocus: true,
                           decoration: InputDecoration(
                             hintText: "Digite seu nome completo",
@@ -159,6 +204,7 @@ class _CadastroState extends State<Cadastro> {
                       SizedBox(
                         width: 350,
                         child: TextFormField(
+                          controller: _cpfController,
                           autofocus: true,
                           decoration: InputDecoration(
                             hintText: "Digite seu CPF",
@@ -265,6 +311,7 @@ class _CadastroState extends State<Cadastro> {
                       SizedBox(
                         width: 350,
                         child: TextFormField(
+                          controller: _emailController,
                           autofocus: true,
                           decoration: InputDecoration(
                             hintText: "Digite seu email",
@@ -321,6 +368,7 @@ class _CadastroState extends State<Cadastro> {
                       SizedBox(
                         width: 350,
                         child: TextFormField(
+                          controller: _passwordController,
                           autofocus: true,
                           obscureText: !_showPassaword,
                           decoration: InputDecoration(
@@ -388,6 +436,7 @@ class _CadastroState extends State<Cadastro> {
                       SizedBox(
                         width: 350,
                         child: TextFormField(
+                          controller: _confirmPasswordController,
                           autofocus: true,
                           obscureText: !_showPassaword1,
                           decoration: InputDecoration(
@@ -442,9 +491,7 @@ class _CadastroState extends State<Cadastro> {
                     ],
                   ),
                   ElevatedButton(
-                        onPressed: () {
-                          buttonEnterClick();
-                        },
+                        onPressed: _register,
                         child: const Text("Cadastrar",
                         style: TextStyle(
                           fontSize: 15,

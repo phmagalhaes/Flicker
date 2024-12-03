@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "922007505479",
+    "project_id": "logincamilly",
+    "storage_bucket": "logincamilly.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922007505479:android:272650ac992a88bc76bf62",
+        "android_client_info": {
+          "package_name": "com.example.camilly_str"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922007505479-fkjbp4f2bo0nsvnu86aqd7j19s378dci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA6eNM-5tVuQJhdlsimAMLKEFnFYBtrLs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922007505479-fkjbp4f2bo0nsvnu86aqd7j19s378dci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

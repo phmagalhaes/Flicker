@@ -352,7 +352,9 @@ class FilmDetailPage extends StatelessWidget {
                 const SizedBox(height: 10),
                             Center(
                               child: ElevatedButton.icon(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/player');
+                                },
                                 icon: const Icon(Icons.play_arrow,
                                     color: Colors.white),
                                 label: const Text("Assistir"),

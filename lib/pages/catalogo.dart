@@ -351,7 +351,9 @@ class _CatalogoState extends State<Catalogo> {
                           const SizedBox(height: 20),
                           Center(
                             child: ElevatedButton.icon(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, "/player");
+                              },
                               icon: const Icon(Icons.play_arrow,
                                   color: Colors.white),
                               label: const Text("Assistir"),

@@ -7,6 +7,7 @@ import 'package:camilly_str/pages/downloads.dart';
 import 'package:camilly_str/pages/escolhaPerfil.dart';
 import 'package:camilly_str/pages/esqueceuSenha.dart';
 import 'package:camilly_str/pages/perfil.dart';
+import 'package:camilly_str/pages/player.dart';
 import 'package:camilly_str/pages/selecaoPerfil.dart';
 import 'package:camilly_str/pages/splashScreen.dart';
 import 'package:camilly_str/pages/login.dart';
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: MyColors.azul),
         useMaterial3: true,
       ),
-      initialRoute: "/login",
+      initialRoute: "/catalogo",
       routes: {
         //paginas
         "/" : (context) => const Incio(),
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
         "/catalogo": (context) => Catalogo(),
         "/buscar": (context) => Buscar(),
         "/downloads": (context) => Downloads(),
+        "/player" : (context) => YoutubeVideoPage(),
       },
     );
   }

@@ -14,14 +14,14 @@ class _DownloadsState extends State<Downloads> {
 
   final List<Map<String, String>> _filmes = [
     {
-      'title': 'Como perder um Homem em 10 dias',
-      'image': 'assets/img/filmes/homem.png',
-      'reproducaoImage': 'assets/img/filmes/homem2.png',
+      'title': 'Monstros S.A.',
+      'image': 'assets/img/filmes/monstro.png',
+      'reproducaoImage': 'assets/img/filmes/monstros2.png',
       'description':
-          'Ao precisar de um relacionamento em 10 dias para escrever um artigo, a jornalista escolhe Ben, que, por uma aposta no trabalho, precisa fazer ela se apaixonar por ele.',
-      'year': '2003',
-      'ageRating': 'A12',
-      'duration': '1h50min'
+          'Na maior fábrica de monstros do mundo, James Sullivan, um monstro azul com chifres, e seu amigo Mike, um monstro verde de um olho só, têm a missão de assustar crianças, consideradas tóxicas pelos monstros. Porém, tudo muda quando a menina Boo, do mundo humano, acidentalmente entra no mundo dos monstros, transformando suas vidas. ',
+      'year': '2001',
+      'ageRating': 'L',
+      'duration': '1h32min'
     },
   ];
 
@@ -97,7 +97,7 @@ class _DownloadsState extends State<Downloads> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
                     image: const DecorationImage(
-                      image: AssetImage('assets/img/filmes/homem.png'),
+                      image: AssetImage('assets/img/filmes/monstro.png'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -151,7 +151,9 @@ class _DownloadsState extends State<Downloads> {
                     color: Colors.white,
                     size: 32,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/player");
+                  },
                 ),
               ],
             ),
@@ -199,7 +201,9 @@ class FilmDetailPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 Center(
                   child: ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/player");
+                    },
                     icon: const Icon(Icons.play_arrow, color: Colors.white),
                     label: const Text("Assistir"),
                     style: ElevatedButton.styleFrom(

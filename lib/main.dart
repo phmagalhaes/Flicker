@@ -1,4 +1,3 @@
-// import 'package:camilly_str/firebase_options.dart';
 import 'package:camilly_str/pages/adicionarPerfil.dart';
 import 'package:camilly_str/pages/buscar.dart';
 import 'package:camilly_str/pages/cadastro.dart';
@@ -13,7 +12,6 @@ import 'package:camilly_str/pages/splashScreen.dart';
 import 'package:camilly_str/pages/login.dart';
 import 'package:camilly_str/pages/splashScreenGrupo.dart';
 import 'package:camilly_str/shared/style.dart';
-// import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -38,7 +36,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: MyColors.azul),
         useMaterial3: true,
       ),
-      initialRoute: "/downloads",
+      initialRoute: "/catalogo",
       routes: {
         //paginas
         "/" : (context) => const Incio(),

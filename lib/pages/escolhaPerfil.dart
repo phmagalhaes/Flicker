@@ -69,6 +69,7 @@ class _EscolhaperfilState extends State<Escolhaperfil> {
                       ),
                     ],
                   ),
+                  Text("slaa"),
                   Image.asset("assets/img/stitch.png")
                 ]
                   ),

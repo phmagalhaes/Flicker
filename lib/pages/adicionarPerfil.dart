@@ -1,6 +1,6 @@
 import 'package:camilly_str/pages/escolhaPerfil.dart';
-import 'package:camilly_str/pages/home.dart';
 import 'package:camilly_str/pages/login.dart';
+import 'package:camilly_str/pages/selecaoPerfil.dart';
 import 'package:camilly_str/shared/style.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +56,7 @@ class _AdicionarperfilState extends State<Adicionarperfil> {
                         },
                       ),
                       const Text(
-                        'Voltrertretar',
+                        'Voltar',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -74,7 +74,7 @@ class _AdicionarperfilState extends State<Adicionarperfil> {
                   ),
                   SizedBox(height: 20,),
                   Text(
-                    "Adicionar Peadasdrfil",
+                    "Adicionar Perfil",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 21,
@@ -169,7 +169,7 @@ class _AdicionarperfilState extends State<Adicionarperfil> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => const Login()),
+                                      builder: (context) => const Selecaoperfil()),
                                 );
                               },
                               child: const Text(

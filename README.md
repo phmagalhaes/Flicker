@@ -1,16 +1,43 @@
-# camilly_str
+# 🎬 Flicker  
+### *Aplicativo de Streaming de Filmes em Flutter*  
 
-A new Flutter project.
+---
 
-## Getting Started
+## 📋 Descrição  
 
-This project is a starting point for a Flutter application.
+O **Flicker** é um aplicativo de streaming de filmes desenvolvido em **Flutter**. Ele oferece uma interface moderna e fácil de usar, permitindo aos usuários navegar por um catálogo de filmes, pesquisar títulos, salvar favoritos e gerenciar múltiplos perfis. O aplicativo foi projetado para ser responsivo, funcionando em dispositivos móveis e web.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Funcionalidades  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 🎥 **Catálogo de Filmes**: Lista de filmes com capa, título e descrição.  
+- 🔎 **Pesquisa**: Pesquise filmes por título ou gênero.  
+- ⭐ **Favoritos**: Adicione filmes à sua lista de favoritos.  
+- 👤 **Perfis de Usuário**: Suporte a múltiplos perfis personalizados.  
+- 🌐 **Streaming Online**: Assista a filmes com controles básicos de reprodução.  
+
+---
+
+## 🛠️ Tecnologias  
+
+- **Flutter**  
+- **Dart**  
+- **Firebase** (autenticação e armazenamento)
+
+---
+
+## 💻 Como Executar  
+
+1. **Clone o repositório**:  
+   ```bash
+   git clone https://github.com/seu-usuario/flicker.git
+2. **Acesse o diretório do projeto**:  
+   ```bash
+   cd flicker
+3. **Instale as dependências**:  
+   ```bash
+   flutter pub get
+4. **Execute o projeto**:  
+   ```bash
+   flutter run

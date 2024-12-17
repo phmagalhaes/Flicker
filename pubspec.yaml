@@ -34,7 +34,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  lottie: ^2.0.0  # Verifique a versão mais recente
+  lottie: ^2.0.0  
+  youtube_player_flutter: ^9.1.1
+  # Verifique a versão mais recente
 
 
 
@@ -87,7 +89,13 @@ flutter:
     - assets/img/filmes/filmesemelhante1.png
     - assets/img/filmes/filmesemelhante2.png
     - assets/img/filmes/selecionadoMonstrosSA.png
-
+    - assets/img/filmes/selecionadoFrozen.png
+    - assets/img/filmes/selecionadoEncanto.png
+    - assets/img/filmes/selecionadoDragao.png
+    - assets/img/filmes/encanto.png
+    - assets/img/filmes/frozen.png
+    - assets/img/filmes/homem.png
+    - assets/img/selecao/play.png
 
     
 
